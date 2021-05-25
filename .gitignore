@@ -1,0 +1,3 @@
+terraform-config/terra.tf
+terraform-config/terraform.*
+terraform-config/.terraform
