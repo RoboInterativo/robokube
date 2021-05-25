@@ -1,0 +1,192 @@
+# Set the variable value in *.tfvars filetoke
+# or using -var="do_token=..." CLI option
+#variable "do_token" {}
+
+# Configure the DigitalOcean Provider
+provider "digitalocean" {
+  token = "9519ec1780ba3ce97f47e4211d39bf2fbbd52d0baed383d848b7ffad02cfd4a8"
+}
+
+# Create a new SSH key
+resource "digitalocean_ssh_key" "home2" {
+  name       = "home2"
+  public_key = file("/home/chief/.ssh/id_rsa.pub")
+}
+
+# Create a web server
+#resource "digitalocean_droplet" "kafka" {
+#    name="kafka"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-2vcpu-4gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+#resource "digitalocean_droplet" "click" {
+#    name="click"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-2gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+
+resource "digitalocean_droplet" "jenkins" {
+    name="jenkins"
+    region = "AMS3"
+    image="ubuntu-18-04-x64"
+    size="s-1vcpu-1gb"
+    #size="s-1vcpu-2gb"
+    private_networking = true
+    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+}
+#resource "digitalocean_droplet" "consul-dc1-1" {
+#    name="zxbot"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+#resource "digitalocean_droplet" "devops1" {
+#    name="devops1"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-2gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+#resource "digitalocean_droplet" "devops5" {
+#    name="devops5"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+#resource "digitalocean_droplet" "devops2" {
+#    name="devops2"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+#resource "digitalocean_droplet" "devops3" {
+#    name="devops3"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+#resource "digitalocean_droplet" "devops4" {
+#    name="devops4"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+
+#resource "digitalocean_droplet" "consul-dc1-2" {
+#    name="consul-dc1-2"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+#resource "digitalocean_droplet" "consul-dc2-1" {
+#    name="consul-dc2-1"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+#resource "digitalocean_droplet" "openshift" {
+#    name="openshift"
+#    region = "AMS3"
+#    image = "centos-7-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+
+#resource "digitalocean_droplet" "dc1-consul2" {
+#    name="dc1-consul2"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+#resource "digitalocean_droplet" "dc1-consul3" {
+#    name="dc1-consul3"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+#resource "digitalocean_droplet" "dc2-consul1" {
+#    name="dc2-consul1"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+#resource "digitalocean_droplet" "dc2-consul2" {
+#    name="dc2-consul2"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+#resource "digitalocean_droplet" "dc2-consul3" {
+#    name="dc2-consul3"
+#    region = "AMS3"
+#    image="ubuntu-18-04-x64"
+#    size="s-1vcpu-1gb"
+#    private_networking = true
+#    ssh_keys = [digitalocean_ssh_key.home2.fingerprint]
+#}
+
+
+    
+    #connection {
+    #    user="root"
+    #    type="ssh"
+    #    host     = digitalocean_droplet.consul1.ipv4_address
+    #    private_key="/home/chief9/project/terra/id_rsa"
+    #}
+
+    #provisioner "remote-exec" {
+    #    inline = [
+    #        "sudo apt update",
+    #        "sudo apt upgrade",
+    #        "sudo apt install python"
+    #    ]
+    #}
+#}
+
+
+  
+
+
+
+
